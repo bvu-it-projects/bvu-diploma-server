@@ -1,5 +1,4 @@
 import express, { response } from 'express';
-import { type } from 'node:os';
 import { FormModel } from './types';
 import { crawlFromData } from './diploma-crawler';
 
@@ -35,6 +34,14 @@ router.post('/', (req, res) => {
         res.status(403).send({ 'error': 'model not accepted' });
     }
 });
+
+
+// getting the details infomation of a student by the key of the date
+router.post('/details/:key', (req, res) => {
+    console.log(req.params.key);
+    res.status(200).send(req.params.key);
+});
+
 
 
 function isModelValid(model: FormModel) {

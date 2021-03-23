@@ -23,6 +23,7 @@
     "webpack-cli": "^4.5.0"
   },
   "dependencies": {
+    "dotenv": "^8.2.0",
     "axios": "^0.21.1",
     "cheerio": "^1.0.0-rc.5",
     "express": "^4.17.1",
