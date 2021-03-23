@@ -1,6 +1,7 @@
 import express, { response } from 'express';
 import { FormModel } from './types';
 import { crawlFromData } from './diploma-crawler';
+import { crawlDiplomaDetails } from './diploma-details-crawler';
 
 const router = express.Router();
 export default router;
@@ -30,7 +31,7 @@ router.post('/', (req, res) => {
             });
     }
     catch(err) {
-        console.log(err);
+        // console.log(err);
         res.status(403).send({ 'error': 'model not accepted' });
     }
 });
@@ -38,8 +39,15 @@ router.post('/', (req, res) => {
 
 // getting the details infomation of a student by the key of the date
 router.post('/details/:key', (req, res) => {
-    console.log(req.params.key);
-    res.status(200).send(req.params.key);
+
+    crawlDiplomaDetails(req.body.key)
+        .then((data) => {
+            return res.status(200).send(data);
+        })
+        .catch((err) => {
+            // console.log(err);
+            return res.status(500).send(err.message);
+        });
 });
 
 

@@ -20,20 +20,24 @@ export interface DiplomaResponse {
 }
 
 
-export type Gender = 'Nam' | 'Nữ';
 export interface StudentInfo {
-    id: number;
+    id: string;
     fullName: string;
     dateOfBirth: string;
     bornAddress: string;
-    gender: Gender;
-    department: string; //  ngành
-    major: string;  //  chuyên ngành
+    gender: string;
+
+    department: string;     //  ngành
+    major: string;          //  chuyên ngành
     graduatedRank: string;
-    graduatedYear: number;
+    learningYear: string;   //  khoá học
+    graduatedYear: string;
+
     issuedDate: string;
     decisionNumber: string;
+
     educateRank: string;    //  bậc đào tạo (Đại học | Cao đẳng)
     educateType: string;    //  loại hình đào tạo
     diplomaNumber: string;  //  số hiệu văn bằng
+    notedDate: string;      //  ngày vào sổ
 }
