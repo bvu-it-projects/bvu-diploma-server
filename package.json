@@ -5,7 +5,8 @@
   "main": "tsconfig.js",
   "scripts": {
     "start": "nodemon src/server.ts",
-    "build": "webpack"
+    "build": "webpack",
+    "deploy": "node deploy.js"
   },
   "keywords": [],
   "author": "",
