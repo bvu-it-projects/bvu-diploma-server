@@ -22,6 +22,8 @@ export interface DiplomaResponse {
 
 export interface StudentInfo {
     id: string;
+    biplomaReferenceUrl: string;
+    
     fullName: string;
     dateOfBirth: string;
     bornAddress: string;
