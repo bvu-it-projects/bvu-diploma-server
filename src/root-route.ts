@@ -1,7 +1,8 @@
 import express, { response } from 'express';
-import { FormModel } from './types';
-import { crawlFromData } from './diploma-crawler';
-import { crawlDiplomaDetails } from './diploma-details-crawler';
+import { StatusCodes, } from 'http-status-codes';
+import { FormModel } from './services/types';
+import { crawlFromData } from './services/diploma-crawler';
+import { crawlDiplomaDetails } from './services/diploma-details-crawler';
 
 const router = express.Router();
 export default router;
@@ -38,7 +39,7 @@ router.post('/', (req, res) => {
 
 
 // getting the details infomation of a student by the key of the date
-router.post('/details/:key', (req, res) => {
+router.post('/details/', (req, res) => {
 
     crawlDiplomaDetails(req.body.key)
         .then((data) => {
